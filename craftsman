@@ -1,0 +1,27 @@
+from os.path import exists
+import sys
+
+classname = sys.argv[2].split("_")
+classname = list(map(lambda word: word.capitalize(), classname))
+classname = ''.join(classname)
+
+filename = sys.argv[2]
+folder = "pages"
+
+lines = [
+    "from shared.page_base import PageBase\n\n",
+    f"class {classname}(PageBase):\n",
+    "\tpass"
+]
+
+path = f"{folder}/{filename}.py"
+
+if exists(path):
+    print("\033[91m file aready exists")
+    sys.exit()
+
+f = open(f"{folder}/{filename}.py", "a")
+f.writelines(lines)
+f.close()
+
+print("\033[92mFile succesfully created")

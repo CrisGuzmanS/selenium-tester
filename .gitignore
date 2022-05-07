@@ -1,0 +1,8 @@
+images/*
+files/*
+venv/
+ *.pyc
+ __pycache__/
+.env
+pages/*
+logs/*
